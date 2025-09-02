@@ -8,7 +8,7 @@ const page = () => {
       className="relative w-full h-[250px] md:h-[350px] lg:h-[450px] 
                  flex items-center justify-center text-center 
                  bg-no-repeat bg-cover bg-center"
-      style={{ backgroundImage: "url('/service3.png')" }} // 👈 tamaru image
+      style={{ backgroundImage: "url('/service3.png')" }} // 
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-blue-600/80 to-blue-300/60"></div>
