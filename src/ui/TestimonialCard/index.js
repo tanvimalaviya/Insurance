@@ -97,10 +97,12 @@
 //   );
 // }
 
-
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowRight, FaStar } from "react-icons/fa";
+//import AOS
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const testimonials = [
   {
@@ -143,8 +145,14 @@ export default function TestimonialCard() {
     setIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
   };
 
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
+
   return (
-    <div className="w-full max-w-6xl mx-auto py-10 relative">
+    <div 
+     data-aos="fade-left" data-aos-duration="2500"
+    className="w-full max-w-6xl mx-auto py-10 relative">
       {/* Arrow Buttons */}
       <button
         onClick={prevSlide}
@@ -179,14 +187,18 @@ export default function TestimonialCard() {
             </div>
             {/* Content */}
             <div className="w-2/3 p-4">
-              <h3 className="text-lg text-left font-semibold text-gray-800">{t.name}</h3>
+              <h3 className="text-lg text-left font-semibold text-gray-800">
+                {t.name}
+              </h3>
               <p className="text-sm text-gray-500 text-left">{t.profession}</p>
               {/* Rating */}
               <div className="flex text-yellow-500 my-2">
                 {Array.from({ length: 5 }, (_, i) => (
                   <FaStar
                     key={i}
-                    className={i < t.rating ? "text-yellow-500" : "text-gray-300"}
+                    className={
+                      i < t.rating ? "text-yellow-500" : "text-gray-300"
+                    }
                   />
                 ))}
               </div>

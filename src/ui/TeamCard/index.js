@@ -1,8 +1,14 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+//import AOS
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const TeamCard = () => {
+   useEffect(() => {
+      AOS.init({ duration: 2000 });
+    }, []);
   const teamdata = [
     {
       id: 1,
@@ -34,6 +40,9 @@ const TeamCard = () => {
     <div className="flex gap-6 justify-center pt-12 flex-wrap ">
       {teamdata.map(({ id, image, name, description }) => (
         <div
+         data-aos="fade-up"
+          data-aos-duration="1200"
+          data-aos-delay={id * 200} // 0ms, 200ms, 400ms, 600ms
           key={id}
           className="relative rounded-2xl shadow-lg overflow-hidden cursor-pointer w-64 group"
         >

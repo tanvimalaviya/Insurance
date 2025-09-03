@@ -1,9 +1,10 @@
-"use client"
+"use client";
 import Image from "next/image";
 //import AOS
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import CountUp from "react-countup";
 
 export default function AboutSection() {
   //useEffect to set animation duration
@@ -15,7 +16,11 @@ export default function AboutSection() {
     <section className="bg-gray-50 py-12">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-6">
         {/* Left Side */}
-        <div data-aos='fade-right' data-aos-duration='2500' className="bg-white rounded-xl shadow p-8">
+        <div
+          data-aos="fade-right"
+          data-aos-duration="2500"
+          className="bg-white rounded-xl shadow p-8"
+        >
           <h4 className="text-blue-600 font-semibold mb-2">
             About Our Company
           </h4>
@@ -53,7 +58,11 @@ export default function AboutSection() {
         </div>
 
         {/* Right Side */}
-        <div data-aos='fade-left' data-aos-duration='2500' className="bg-white rounded-xl shadow p-8 flex flex-col items-center">
+        <div
+          data-aos="fade-left"
+          data-aos-duration="2500"
+          className="bg-white rounded-xl shadow p-8 flex flex-col items-center"
+        >
           <div className="w-full flex justify-center mb-6">
             <Image
               src="/about-1.png"
@@ -66,19 +75,27 @@ export default function AboutSection() {
 
           <div className="grid grid-cols-2 gap-4 w-full text-center">
             <div className="bg-gray-50 rounded-lg p-4">
-              <h3 className="text-2xl font-bold text-blue-600">129 +</h3>
+              <h3 className="text-2xl font-bold text-blue-600">
+                <CountUp start={0} end={129} duration={4} />+
+              </h3>
               <p className="text-gray-700">Insurance Policies</p>
             </div>
             <div className="bg-gray-50 rounded-lg p-4">
-              <h3 className="text-2xl font-bold text-blue-600">99 +</h3>
+              <h3 className="text-2xl font-bold text-blue-600">
+                <CountUp start={0} end={99} duration={4}></CountUp>+
+                </h3>
               <p className="text-gray-700">Awards WON</p>
             </div>
             <div className="bg-gray-50 rounded-lg p-4">
-              <h3 className="text-2xl font-bold text-blue-600">556 +</h3>
+              <h3 className="text-2xl font-bold text-blue-600">
+                 <CountUp start={0} end={556} duration={4}></CountUp>+
+                 </h3>
               <p className="text-gray-700">Skilled Agents</p>
             </div>
             <div className="bg-gray-50 rounded-lg p-4">
-              <h3 className="text-2xl font-bold text-blue-600">967 +</h3>
+              <h3 className="text-2xl font-bold text-blue-600">
+                 <CountUp start={0} end={967} duration={4}></CountUp>+
+                 </h3>
               <p className="text-gray-700">Team Members</p>
             </div>
           </div>

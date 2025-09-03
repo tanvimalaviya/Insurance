@@ -1,21 +1,31 @@
-import React from "react";
+"use client"
+import React, { useEffect } from "react";
 import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt, FaGlobe } from "react-icons/fa";
 import GoogleMap from "../GoogleMap";
+//import AOS
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Contact = () => {
+   useEffect(() => {
+        AOS.init({ duration: 2000 });
+      }, []);
+
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 text-center">
         {/* Heading */}
+        <div  data-aos="fade-down" data-aos-duration="3500">
         <p className="text-blue-600 font-semibold">Contact Us</p>
         <h1 className="text-3xl md:text-4xl font-bold mt-2">
           If you have any comments please apply now
         </h1>
+        </div>
 
         {/* Content Wrapper */}
         <div className="mt-10 grid md:grid-cols-2 gap-10 items-center text-left">
           {/* Left image */}
-          <div className="flex justify-center">
+          <div  data-aos="fade-right" data-aos-duration="1500" className="flex justify-center">
             <img
               src="/contactimg.png"
               alt="contact image"
@@ -24,7 +34,7 @@ const Contact = () => {
           </div>
 
           {/* Right Content */}
-          <div className=" p-8 rounded-xl ">
+          <div  data-aos="fade-left" data-aos-duration="1500" className=" p-8 rounded-xl ">
             <h4 className="text-xl font-semibold text-blue-600 mb-3">
               Send Your Message
             </h4>
@@ -95,35 +105,37 @@ const Contact = () => {
         {/* Information div */}
        <div className="max-w-6xl mx-auto px-6 py-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
         {/* Address */}
-        <div className="flex flex-col items-center">
+        <div  data-aos="fade-up" data-aos-duration="4500" className="flex flex-col items-center">
           <FaMapMarkerAlt className="text-blue-600 text-3xl mb-3" />
           <h4 className="text-lg font-semibold">Address</h4>
           <p className="text-gray-600 mt-1">123 Street New York, USA</p>
         </div>
 
         {/* Mail */}
-        <div className="flex flex-col items-center">
+        <div data-aos="fade-up" data-aos-duration="3500"  className="flex flex-col items-center">
           <FaEnvelope className="text-blue-600 text-3xl mb-3" />
           <h4 className="text-lg font-semibold">Mail Us</h4>
           <p className="text-gray-600 mt-1">info@example.com</p>
         </div>
 
         {/* Telephone */}
-        <div className="flex flex-col items-center">
+        <div data-aos="fade-up" data-aos-duration="4500"  className="flex flex-col items-center">
           <FaPhoneAlt className="text-blue-600 text-3xl mb-3" />
           <h4 className="text-lg font-semibold">Telephone</h4>
           <p className="text-gray-600 mt-1">(+012) 3456 7890</p>
         </div>
 
         {/* Website */}
-        <div className="flex flex-col items-center">
+        <div data-aos="fade-up" data-aos-duration="5500"  className="flex flex-col items-center">
           <FaGlobe className="text-blue-600 text-3xl mb-3" />
           <h4 className="text-lg font-semibold">Yoursite@ex.com</h4>
           <p className="text-gray-600 mt-1">(+012) 3456 7890</p>
         </div>
       </div>
 
+      <div data-aos="fade-up" data-aos-duration="2500">
       <GoogleMap/>
+      </div>
       </div>
     </section>
   );

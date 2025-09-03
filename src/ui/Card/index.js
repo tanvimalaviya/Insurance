@@ -3,10 +3,13 @@ import React from "react";
 export default function FeatureCard({ icon, title, description }) {
   return (
     <div className="group bg-white rounded-xl shadow p-4 pt-0 text-center hover:bg-blue-600 hover:text-white hover:shadow-lg transition">
-      
       {/* Icon Box */}
-      <div className="bg-gray-50 group-hover:bg-blue-950 rounded-lg mb-4 p-4 w-15">
-        <span className="   group-hover:text-white transition">
+      <div className="relative bg-gray-50 rounded-lg mb-4 p-4 w-15 group overflow-hidden">
+        {/* Background effect */}
+        <div className="absolute inset-0 bg-blue-950 transform -translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-in-out"></div>
+
+        {/* Icon */}
+        <span className="relative z-10  text-blue-600 group-hover:text-white transition">
           {icon}
         </span>
       </div>

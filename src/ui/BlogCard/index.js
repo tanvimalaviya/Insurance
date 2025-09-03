@@ -1,5 +1,9 @@
 import { Calendar, MessageCircle, User } from "lucide-react";
 import { FaCalendarAlt, FaCommentAlt, FaUser } from "react-icons/fa";
+//import AOS
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const cardData = [
   {
@@ -38,6 +42,11 @@ const cardData = [
 ];
 
 export default function BlogCard() {
+
+   useEffect(() => {
+      AOS.init({ duration: 2000 });
+    }, []);
+
   return (
     <section className="py-12 px-6 md:px-20 bg-white">
       <div
@@ -46,6 +55,9 @@ export default function BlogCard() {
       >
         {cardData.map((card) => (
           <div
+           data-aos="fade-up"
+          data-aos-duration="1200"
+          data-aos-delay={card.id * 200} // 0ms, 200ms, 400ms, 600ms
             key={card.id}
             className=" group group-hover:bg-white bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden"
           >
