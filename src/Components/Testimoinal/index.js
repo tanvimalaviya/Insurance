@@ -1,11 +1,21 @@
 "use client";
 import TestimoinalCard from "@/ui/TestimonialCard";
-import React from "react";
+import React, { useEffect } from "react";
+//import AOS
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Testimonial = () => {
+
+   useEffect(() => {
+        AOS.init({ duration: 2000 });
+      }, []);
+
+
   return (
     <section className="py-16 bg-white relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 text-center relative">
+        <div  data-aos="fade-up" data-aos-duration="1500">
         {/* Header */}
         <p className="text-blue-600 text-md font-semibold uppercase">
           Testimonial
@@ -19,6 +29,7 @@ const Testimonial = () => {
           itaque quis facere, numquam, ad culpa deserunt sint dolorem autem
           obcaecati, ipsam mollitia hic.
         </p>
+        </div>
         <TestimoinalCard/>
       </div>
     </section>

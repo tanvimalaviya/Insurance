@@ -2,9 +2,17 @@
 import FeaturesSection from "@/Components/FeatureSection";
 import Services from "@/Components/Services";
 import Testimonial from "@/Components/Testimoinal";
-import React from "react";
+import React, { useEffect } from "react";
+//import AOS
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const PageHeader = () => {
+
+    useEffect(() => {
+        AOS.init({ duration: 2000 });
+      }, []);
+
   return (
     <div>
     <div
@@ -17,7 +25,7 @@ const PageHeader = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-blue-600/80 to-blue-300/60"></div>
 
       {/* Content */}
-      <div className="relative z-10 px-4">
+      <div  data-aos="fade-down" data-aos-duration="2500" className="relative z-10 px-4">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
           Our Services
         </h1>

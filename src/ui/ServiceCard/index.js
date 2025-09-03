@@ -1,10 +1,16 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import Image from "next/image";
+import { FaUsers, FaHospital, FaCar, FaHome } from "react-icons/fa";
+//import AOS
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const servicedata = [
   {
     id: 1,
     image: "/service1.png",
+    icon: <FaUsers className="text-blue-600 text-2xl" />,
     title: "Life Insurance",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     button: "Read More",
@@ -12,6 +18,7 @@ const servicedata = [
   {
     id: 2,
     image: "/service2.png",
+    icon: <FaHospital className="text-blue-600 text-2xl" />,
     title: "Health Insurance",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     button: "Read More",
@@ -19,6 +26,7 @@ const servicedata = [
   {
     id: 3,
     image: "/service3.png",
+    icon: <FaCar className="text-blue-600 text-2xl" />,
     title: "Car Insurance",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     button: "Read More",
@@ -26,6 +34,7 @@ const servicedata = [
   {
     id: 4,
     image: "/service4.png",
+    icon: <FaHome className="text-blue-600 text-2xl" />,
     title: "Home Insurance",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     button: "Read More",
@@ -33,35 +42,54 @@ const servicedata = [
 ];
 
 const ServiceCard = () => {
+  //useEffect to set animation duration
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
+
   return (
-    <div className="max-w-6xl mx-auto py-10 px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      {servicedata.map(({ id, image, title, description, button }) => (
+    <div className="max-w-6xl mx-auto py-10 px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 ">
+      {servicedata.map(({ id, image, icon, title, description, button }) => (
         <div
           key={id}
-          className=" rounded-2xl p-6 flex flex-col items-center text-center hover:shadow-lg transition duration-300 ease-in-out group hover:text-white "
+          data-aos="fade-up"
+          data-aos-duration="1200"
+          data-aos-delay={id * 200} // 0ms, 200ms, 400ms, 600ms
+          className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 ease-in-out group"
         >
           {/* Top Image */}
-          <div className="w-52 h-32 relative mb-4 group-hover:bg-blue-100">
+          <div className="w-full h-40 relative flex items-center justify-center bg-white group-hover:bg-blue-100">
             <Image
               src={image}
               alt={title}
-              fill
+              width={200}
+              height={220}
               className="object-contain"
             />
+
+            {/* Icon Overlay */}
+            <div
+              className="bg-gray-50 rounded-tl-lg rounded-tr-lg p-4 right-0 bottom-0 absolute 
+                    text-blue-600 group-hover:bg-blue-100  "
+            >
+              {icon}
+            </div>
           </div>
-          <div className="bg-gray-100 shadow-md  p-6 flex flex-col items-center text-center hover:shadow-lg transition duration-300 ease-in-out group-hover:bg-blue-600">
 
-          {/* Title */}
-          <h3 className="text-lg font-semibold mb-2">{title}</h3>
+          {/* Content */}
+          <div className="p-6 text-left bg-gray-50 group-hover:bg-blue-600 group-hover:text-white ">
+            {/* Title */}
+            <h4 className="text-lg mb-2">{title}</h4>
 
-          {/* Description */}
-          <p className="text-sm mb-4">{description}</p>
+            {/* Description */}
+            <p className="text-sm text-gray-600 mb-4 group-hover:text-white">
+              {description}
+            </p>
 
-          {/* Button */}
-          <button className="bg-blue-600 text-white px-4 py-2 rounded-full group-hover:bg-white group-hover:text-blue-600 transition">
-            {button}
-          </button>
-
+            {/* Button */}
+            <button className="bg-blue-600 text-white px-4 py-2 rounded-full group-hover:bg-white group-hover:text-blue-600 transition">
+              {button}
+            </button>
           </div>
         </div>
       ))}
@@ -70,23 +98,3 @@ const ServiceCard = () => {
 };
 
 export default ServiceCard;
-
-
-
-
-{/* <div className="">
-        <div className="image">
-          <div className="icon-div"></div>
-        </div>
-
-        <div className="service-contenet">
-          <div className="service-content-inner">
-            <a>Home insurance</a>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Perspiciatis, eum!
-            </p>
-            <a>Read More</a>
-          </div>
-        </div>
-      </div> */}

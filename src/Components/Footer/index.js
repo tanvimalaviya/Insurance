@@ -9,12 +9,15 @@ import {
   FaMapMarkerAlt,
   FaSlack,
 } from "react-icons/fa";
+import { FaLink } from "react-icons/fa";
 
 export default function Footer() {
   return (
     <footer className="bg-[#0B1A33] text-gray-300 pt-15">
-      <div className="max-w-6xl mx-auto px-6 container
-       grid grid-cols-1 md:grid-cols-4 gap-8 border-b border-gray-700 pb-10">
+      <div
+        className="max-w-6xl mx-auto px-6 container
+       grid grid-cols-1 md:grid-cols-4 gap-8 border-b border-gray-700 pb-10"
+      >
         {/* Company Info */}
         <div>
           <div className="flex items-center gap-2 mb-4">
@@ -97,36 +100,33 @@ export default function Footer() {
         <div>
           <h2 className="text-lg font-semibold text-white mb-4">Instagram</h2>
           <div className="grid grid-cols-3 gap-2">
-            <img
-              src="/instagramfooter1.jpg"
-              alt="insta"
-              className="w-full h-20 object-cover rounded-md"
-            />
-            <img
-              src="/instagramfooter2.jpg"
-              alt="insta"
-              className="w-full h-20 object-cover rounded-md"
-            />
-            <img
-              src="/instagramfooter3.jpg"
-              alt="insta"
-              className="w-full h-20 object-cover rounded-md"
-            />
-            <img
-              src="/instagramfooter4.jpg"
-              alt="insta"
-              className="w-full h-20 object-cover rounded-md"
-            />
-            <img
-              src="/instagramfooter5.jpg"
-              alt="insta"
-              className="w-full h-20 object-cover rounded-md"
-            />
-            <img
-              src="/instagramfooter6.jpg"
-              alt="insta"
-              className="w-full h-20 object-cover rounded-md"
-            />
+            {[
+              "/instagramfooter1.jpg",
+              "/instagramfooter2.jpg",
+              "/instagramfooter3.jpg",
+              "/instagramfooter4.jpg",
+              "/instagramfooter5.jpg",
+              "/instagramfooter6.jpg",
+            ].map((src, index) => (
+              <div
+                key={index}
+                className="relative group w-full h-20 overflow-hidden rounded-md"
+              >
+                {/* Image */}
+                <img
+                  src={src}
+                  alt="insta"
+                  className="w-full h-full object-cover rounded-md transform transition-transform duration-500 group-hover:scale-110"
+                />
+
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 rounded-md">
+                 
+                  <FaLink />
+                
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
