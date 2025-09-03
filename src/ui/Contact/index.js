@@ -1,5 +1,6 @@
 import React from "react";
-import { FaLocationDot } from "react-icons/fa6";
+import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt, FaGlobe } from "react-icons/fa";
+import GoogleMap from "../GoogleMap";
 
 const Contact = () => {
   return (
@@ -92,17 +93,37 @@ const Contact = () => {
         </div>
 
         {/* Information div */}
-        <div>
-            <div>
-                <FaLocationDot />
-                <h4>Address</h4>
-                <p>123 Street New York.USA</p>
-            </div>
-
-            <div>
-                
-            </div>
+       <div className="max-w-6xl mx-auto px-6 py-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+        {/* Address */}
+        <div className="flex flex-col items-center">
+          <FaMapMarkerAlt className="text-blue-600 text-3xl mb-3" />
+          <h4 className="text-lg font-semibold">Address</h4>
+          <p className="text-gray-600 mt-1">123 Street New York, USA</p>
         </div>
+
+        {/* Mail */}
+        <div className="flex flex-col items-center">
+          <FaEnvelope className="text-blue-600 text-3xl mb-3" />
+          <h4 className="text-lg font-semibold">Mail Us</h4>
+          <p className="text-gray-600 mt-1">info@example.com</p>
+        </div>
+
+        {/* Telephone */}
+        <div className="flex flex-col items-center">
+          <FaPhoneAlt className="text-blue-600 text-3xl mb-3" />
+          <h4 className="text-lg font-semibold">Telephone</h4>
+          <p className="text-gray-600 mt-1">(+012) 3456 7890</p>
+        </div>
+
+        {/* Website */}
+        <div className="flex flex-col items-center">
+          <FaGlobe className="text-blue-600 text-3xl mb-3" />
+          <h4 className="text-lg font-semibold">Yoursite@ex.com</h4>
+          <p className="text-gray-600 mt-1">(+012) 3456 7890</p>
+        </div>
+      </div>
+
+      <GoogleMap/>
       </div>
     </section>
   );

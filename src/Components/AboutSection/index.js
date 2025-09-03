@@ -1,23 +1,35 @@
-
+"use client"
 import Image from "next/image";
+//import AOS
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 export default function AboutSection() {
+  //useEffect to set animation duration
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
+
   return (
     <section className="bg-gray-50 py-12">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-6">
-        
         {/* Left Side */}
-        <div className="bg-white rounded-xl shadow p-8">
-          <h4 className="text-blue-600 font-semibold mb-2">About Our Company</h4>
+        <div data-aos='fade-right' data-aos-duration='2500' className="bg-white rounded-xl shadow p-8">
+          <h4 className="text-blue-600 font-semibold mb-2">
+            About Our Company
+          </h4>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-snug">
             High Range of <br /> Exploring Protection
           </h2>
           <p className="text-gray-600 mb-4">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt debitis sint tempora. 
-            Corporis consequatur illo blanditiis voluptates aperiam quos aliquam totam aliquid rem explicabo.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt
+            debitis sint tempora. Corporis consequatur illo blanditiis
+            voluptates aperiam quos aliquam totam aliquid rem explicabo.
           </p>
           <p className="text-gray-600 mb-6">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae praesentium recusandae eligendi modi hic.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
+            praesentium recusandae eligendi modi hic.
           </p>
 
           <ul className="space-y-3 mb-6">
@@ -36,15 +48,15 @@ export default function AboutSection() {
           </ul>
 
           <button className="bg-blue-600 text-white px-6 py-3 rounded-full  transition duration-700 ease-in-out hover:bg-blue-950 ">
-            More Information
+            <a href="/about">More Information</a>
           </button>
         </div>
 
         {/* Right Side */}
-        <div className="bg-white rounded-xl shadow p-8 flex flex-col items-center">
+        <div data-aos='fade-left' data-aos-duration='2500' className="bg-white rounded-xl shadow p-8 flex flex-col items-center">
           <div className="w-full flex justify-center mb-6">
             <Image
-              src="/about-1.png" 
+              src="/about-1.png"
               alt="Company Illustration"
               width={400}
               height={250}
@@ -71,7 +83,6 @@ export default function AboutSection() {
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );

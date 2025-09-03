@@ -1,4 +1,5 @@
 import { Calendar, MessageCircle, User } from "lucide-react";
+import { FaCalendarAlt, FaCommentAlt, FaUser } from "react-icons/fa";
 
 const cardData = [
   {
@@ -39,8 +40,10 @@ const cardData = [
 export default function BlogCard() {
   return (
     <section className="py-12 px-6 md:px-20 bg-white">
-      <div className="max-w-5xl mx-auto grid md:grid-cols-3 sm:grid-cols-2 
-   gap-8">
+      <div
+        className="max-w-5xl mx-auto grid md:grid-cols-3 sm:grid-cols-2 
+   gap-8"
+      >
         {cardData.map((card) => (
           <div
             key={card.id}
@@ -53,7 +56,9 @@ export default function BlogCard() {
                 alt={card.title}
                 className="h-40 object-contain transition-transform duration-500 group-hover:scale-110"
               />
-              <span className="absolute right-0 bottom-0 bg-blue-600 text-white text-sm px-3 py-1 rounded-tl-lg">{card.category}</span>
+              <span className="absolute right-0 bottom-0 bg-blue-600 text-white text-sm px-3 py-1 rounded-tl-lg">
+                {card.category}
+              </span>
             </div>
 
             {/* Content */}
@@ -64,15 +69,27 @@ export default function BlogCard() {
               </span> */}
 
               {/* Meta info */}
-              <div className="flex items-center gap-4 text-gray-500 text-sm mb-4">
-                <div className="flex items-center gap-1">
-                  <User size={16} /> {card.author}
+              <div className="flex items-center  gap-4 text-gray-500 text-xs mb-4">
+                <div className="flex items-center gap-2 text-xs text-gray-600">
+                  <span className="inline-flex items-center gap-1 leading-none">
+                    <FaUser className="text-gray-500 text-sm" />
+                    <span>{card.author}</span>
+                  </span>
                 </div>
-                <div className="flex items-center gap-1">
-                  <Calendar size={16} /> {card.date}
+
+
+                <div className="flex items-center gap-2 text-xs text-gray-600">
+                  <span className="inline-flex items-center gap-1 leading-none">
+                    <FaCalendarAlt className="text-gray-500 text-sm" />
+                    <span>{card.date}</span>
+                  </span>
                 </div>
-                <div className="flex items-center gap-1">
-                  <MessageCircle size={16} /> {card.comments} Comments
+
+                <div className="flex items-center gap-2 text-xs text-gray-600">
+                  <span className="inline-flex items-center gap-1 leading-none">
+                    <FaCommentAlt className="text-gray-500 text-sm" />
+                    <span>{card.comments} comments</span>
+                  </span>
                 </div>
               </div>
 

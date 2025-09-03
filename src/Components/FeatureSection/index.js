@@ -20,6 +20,7 @@ export default function FeaturesSection() {
         {/* Responsive Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
           <Card
+           data-aos='fade-right' data-aos-duration='2500'
             icon={<Handshake className="w-8 h-8" />}
             title="Trusted Company"
             description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea hic laborum odit pariatur..."

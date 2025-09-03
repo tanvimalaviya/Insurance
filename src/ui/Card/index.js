@@ -22,9 +22,9 @@ export default function FeatureCard({ icon, title, description }) {
       </p>
 
       {/* Button */}
-      <button className="bg-blue-600 text-white px-5 py-2 group-hover:bg-white group-hover:text-blue-600 rounded-full font-semibold transition">
+      {/* <button className="bg-blue-600 text-white px-5 py-2 group-hover:bg-white group-hover:text-blue-600 rounded-full font-semibold transition">
         Learn More
-      </button>
+      </button> */}
     </div>
   );
 }

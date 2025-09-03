@@ -12,7 +12,10 @@ const Services = () => {
             <ServiceCard/>
             <div className='flex justify-center'>
             
-            <button className='   bg-blue-600 py-3 px-6 hover:bg-blue-950 rounded-full text-white'>More Services</button></div>
+            <button className='   bg-blue-600 py-3 px-8 hover:bg-blue-950 rounded-full text-white'>
+              <a href='/services'>
+              More Services
+              </a></button></div>
     </section>
   )
 }

@@ -179,8 +179,8 @@ export default function TestimonialCard() {
             </div>
             {/* Content */}
             <div className="w-2/3 p-4">
-              <h3 className="text-lg font-semibold text-gray-800">{t.name}</h3>
-              <p className="text-sm text-gray-500">{t.profession}</p>
+              <h3 className="text-lg text-left font-semibold text-gray-800">{t.name}</h3>
+              <p className="text-sm text-gray-500 text-left">{t.profession}</p>
               {/* Rating */}
               <div className="flex text-yellow-500 my-2">
                 {Array.from({ length: 5 }, (_, i) => (
@@ -190,7 +190,7 @@ export default function TestimonialCard() {
                   />
                 ))}
               </div>
-              <p className="text-gray-600 text-sm">{t.description}</p>
+              <p className="text-gray-600 text-sm text-left">{t.description}</p>
             </div>
           </div>
         ))}

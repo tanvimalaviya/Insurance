@@ -27,9 +27,9 @@ const PageHeader = () => {
     
     </div>
       <AboutSection/>
-      <FeaturesSection/>
+      {/* <FeaturesSection/> */}
       <FAQ/>
-      <Team/>
+      {/* <Team/> */}
       </div>
   );
 };

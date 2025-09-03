@@ -1,5 +1,8 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+//import AOS
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const faqs = [
   {
@@ -25,12 +28,16 @@ export default function FAQ() {
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
+   //useEffect to set animation duration
+    useEffect(() => {
+      AOS.init({ duration: 2000 });
+    }, []);
 
   return (
     <section className="bg-gray-50 py-12 px-6 md:px-20">
       <div className="max-w-8xl mx-auto grid md:grid-cols-2 gap-10 items-center">
         {/* Text Section */}
-        <div>
+        <div  data-aos='fade-right' data-aos-duration='2500'>
           <p className="text-blue-600 font-medium">Some Important FAQ's</p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             Common Frequently <br /> Asked Questions
@@ -62,7 +69,7 @@ export default function FAQ() {
         </div>
 
         {/* Illustration Section */}
-        <div className="flex justify-center">
+        <div data-aos='fade-left' data-aos-duration='2500' className="flex justify-center">
           <img
             src="/hero.png"
             alt="FAQ Illustration"

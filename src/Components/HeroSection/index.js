@@ -34,16 +34,16 @@ export default function HeroSlider() {
     setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
 
-  // 🔥 Auto play
+  //  Auto play
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 5000);
+    }, 10000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="bg-blue-700 pt-24 text-white overflow-hidden relative">
+    <section className="bg-blue-700 pt-20 text-white overflow-hidden relative">
       <div className="relative w-full h-full">
         {/* Slider wrapper */}
         <div
@@ -77,9 +77,9 @@ export default function HeroSlider() {
                     </svg>
                     Watch Video
                   </button>
-                  <button className="bg-black text-white font-semibold px-6 py-3 rounded-full shadow hover:scale-105 hover:shadow-lg transition-transform duration-300 text-sm sm:text-base">
+                  {/* <button className="bg-black text-white font-semibold px-6 py-3 rounded-full shadow hover:scale-105 hover:shadow-lg transition-transform duration-300 text-sm sm:text-base">
                     Learn More
-                  </button>
+                  </button> */}
                 </div>
               </div>
 
@@ -99,7 +99,7 @@ export default function HeroSlider() {
       </div>
 
       {/* Navigation Arrows */}
-      <div className="flex justify-center gap-6 mt-8 pb-10">
+      <div className="flex justify-center gap-6  pb-10">
         {/* Left Arrow */}
         <button
           onClick={prevSlide}
